@@ -39,7 +39,7 @@ jobs:
           docker build -t rag-qa-system:test .
           docker run --rm \
             -e GROQ_API_KEY=${{ secrets.GROQ_API_KEY }} \
-            -e GOOGLE_API_KEY=${{ secrets.GOOGLE_API_KEY }} \
-            -e QDRANT_URL=${{ secrets.QDRANT_URL }} \
-            -e QDRANT_API_KEY=${{ secrets.QDRANT_API_KEY }} \
+            -e googleapikey=${{ secrets.GOOGLE_API_KEY }} \
+            -e qdrant_url=${{ secrets.QDRANT_URL }} \
+            -e qdrant_api_key=${{ secrets.QDRANT_API_KEY }} \
             rag-qa-system:test python -c "from app.main import app; print('App loaded successfully')"
